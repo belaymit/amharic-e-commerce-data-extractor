@@ -1,0 +1,12 @@
+{
+  "total_messages_processed": 50,
+  "total_tokens": 515,
+  "total_entities": 187,
+  "entity_counts": {
+    "PRODUCT": 47,
+    "LOC": 40,
+    "PRICE": 100
+  },
+  "creation_timestamp": "2025-06-18T17:47:09.304794",
+  "output_file": "data/conll_labeled/amharic_ecommerce_conll.txt"
+}

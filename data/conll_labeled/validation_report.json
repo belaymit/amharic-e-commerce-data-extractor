@@ -1,0 +1,978 @@
+{
+  "file_tested": "data/conll_labeled/amharic_ecommerce_conll.txt",
+  "validation_results": {
+    "valid_format": true,
+    "invalid_labels": [],
+    "bio_violations": [],
+    "statistics": {
+      "B-PRODUCT": 47,
+      "O": 272,
+      "B-PRICE": 100,
+      "I-PRICE": 50,
+      "B-LOC": 40,
+      "I-LOC": 6
+    }
+  },
+  "entities_found": {
+    "PRODUCT": [
+      {
+        "message": 1,
+        "text": "cream",
+        "tokens": 1
+      },
+      {
+        "message": 2,
+        "text": "ጫማ",
+        "tokens": 1
+      },
+      {
+        "message": 4,
+        "text": "ቦርሳ",
+        "tokens": 1
+      },
+      {
+        "message": 5,
+        "text": "cream",
+        "tokens": 1
+      },
+      {
+        "message": 6,
+        "text": "ጫማ",
+        "tokens": 1
+      },
+      {
+        "message": 8,
+        "text": "ቦርሳ",
+        "tokens": 1
+      },
+      {
+        "message": 9,
+        "text": "cream",
+        "tokens": 1
+      },
+      {
+        "message": 10,
+        "text": "ጫማ",
+        "tokens": 1
+      },
+      {
+        "message": 12,
+        "text": "ቦርሳ",
+        "tokens": 1
+      },
+      {
+        "message": 13,
+        "text": "cream",
+        "tokens": 1
+      },
+      {
+        "message": 14,
+        "text": "ጫማ",
+        "tokens": 1
+      },
+      {
+        "message": 16,
+        "text": "ቦርሳ",
+        "tokens": 1
+      },
+      {
+        "message": 17,
+        "text": "ጫማ",
+        "tokens": 1
+      },
+      {
+        "message": 19,
+        "text": "ቦርሳ",
+        "tokens": 1
+      },
+      {
+        "message": 20,
+        "text": "ሞባይል",
+        "tokens": 1
+      },
+      {
+        "message": 20,
+        "text": "ፎን",
+        "tokens": 1
+      },
+      {
+        "message": 21,
+        "text": "ጫማ",
+        "tokens": 1
+      },
+      {
+        "message": 23,
+        "text": "ቦርሳ",
+        "tokens": 1
+      },
+      {
+        "message": 24,
+        "text": "ሞባይል",
+        "tokens": 1
+      },
+      {
+        "message": 24,
+        "text": "ፎን",
+        "tokens": 1
+      },
+      {
+        "message": 25,
+        "text": "ጫማ",
+        "tokens": 1
+      },
+      {
+        "message": 27,
+        "text": "ቦርሳ",
+        "tokens": 1
+      },
+      {
+        "message": 28,
+        "text": "ሞባይል",
+        "tokens": 1
+      },
+      {
+        "message": 28,
+        "text": "ፎን",
+        "tokens": 1
+      },
+      {
+        "message": 29,
+        "text": "ጫማ",
+        "tokens": 1
+      },
+      {
+        "message": 31,
+        "text": "ቦርሳ",
+        "tokens": 1
+      },
+      {
+        "message": 32,
+        "text": "ሞባይል",
+        "tokens": 1
+      },
+      {
+        "message": 32,
+        "text": "ፎን",
+        "tokens": 1
+      },
+      {
+        "message": 34,
+        "text": "ቦርሳ",
+        "tokens": 1
+      },
+      {
+        "message": 35,
+        "text": "ሞባይል",
+        "tokens": 1
+      },
+      {
+        "message": 35,
+        "text": "ፎን",
+        "tokens": 1
+      },
+      {
+        "message": 36,
+        "text": "ልብስ",
+        "tokens": 1
+      },
+      {
+        "message": 38,
+        "text": "ቦርሳ",
+        "tokens": 1
+      },
+      {
+        "message": 39,
+        "text": "ሞባይል",
+        "tokens": 1
+      },
+      {
+        "message": 39,
+        "text": "ፎን",
+        "tokens": 1
+      },
+      {
+        "message": 40,
+        "text": "ልብስ",
+        "tokens": 1
+      },
+      {
+        "message": 42,
+        "text": "ቦርሳ",
+        "tokens": 1
+      },
+      {
+        "message": 43,
+        "text": "ሞባይል",
+        "tokens": 1
+      },
+      {
+        "message": 43,
+        "text": "ፎን",
+        "tokens": 1
+      },
+      {
+        "message": 44,
+        "text": "ልብስ",
+        "tokens": 1
+      },
+      {
+        "message": 46,
+        "text": "ቦርሳ",
+        "tokens": 1
+      },
+      {
+        "message": 47,
+        "text": "ሞባይል",
+        "tokens": 1
+      },
+      {
+        "message": 47,
+        "text": "ፎን",
+        "tokens": 1
+      },
+      {
+        "message": 48,
+        "text": "ልብስ",
+        "tokens": 1
+      },
+      {
+        "message": 49,
+        "text": "ቦርሳ",
+        "tokens": 1
+      },
+      {
+        "message": 50,
+        "text": "ሞባይል",
+        "tokens": 1
+      },
+      {
+        "message": 50,
+        "text": "ፎን",
+        "tokens": 1
+      }
+    ],
+    "PRICE": [
+      {
+        "message": 1,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 1,
+        "text": "1200 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 2,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 2,
+        "text": "1800 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 3,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 3,
+        "text": "2500 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 4,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 4,
+        "text": "5000 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 5,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 5,
+        "text": "1200 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 6,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 6,
+        "text": "1800 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 7,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 7,
+        "text": "2500 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 8,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 8,
+        "text": "5000 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 9,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 9,
+        "text": "1200 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 10,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 10,
+        "text": "1800 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 11,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 11,
+        "text": "2500 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 12,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 12,
+        "text": "5000 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 13,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 13,
+        "text": "1200 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 14,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 14,
+        "text": "1800 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 15,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 15,
+        "text": "2500 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 16,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 16,
+        "text": "5000 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 17,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 17,
+        "text": "1296 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 18,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 18,
+        "text": "1944 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 19,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 19,
+        "text": "2700 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 20,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 20,
+        "text": "5400 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 21,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 21,
+        "text": "1296 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 22,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 22,
+        "text": "1944 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 23,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 23,
+        "text": "2700 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 24,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 24,
+        "text": "5400 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 25,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 25,
+        "text": "1296 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 26,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 26,
+        "text": "1944 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 27,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 27,
+        "text": "2700 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 28,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 28,
+        "text": "5400 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 29,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 29,
+        "text": "1296 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 30,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 30,
+        "text": "1944 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 31,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 31,
+        "text": "2700 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 32,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 32,
+        "text": "5400 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 33,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 33,
+        "text": "1392 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 34,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 34,
+        "text": "2088 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 35,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 35,
+        "text": "2900 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 36,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 36,
+        "text": "5800 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 37,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 37,
+        "text": "1392 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 38,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 38,
+        "text": "2088 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 39,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 39,
+        "text": "2900 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 40,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 40,
+        "text": "5800 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 41,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 41,
+        "text": "1392 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 42,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 42,
+        "text": "2088 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 43,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 43,
+        "text": "2900 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 44,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 44,
+        "text": "5800 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 45,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 45,
+        "text": "1392 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 46,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 46,
+        "text": "2088 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 47,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 47,
+        "text": "2900 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 48,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 48,
+        "text": "5800 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 49,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 49,
+        "text": "1488 ብር።",
+        "tokens": 2
+      },
+      {
+        "message": 50,
+        "text": "ዋጋ",
+        "tokens": 1
+      },
+      {
+        "message": 50,
+        "text": "2232 ብር።",
+        "tokens": 2
+      }
+    ],
+    "LOC": [
+      {
+        "message": 1,
+        "text": "መርካቶ",
+        "tokens": 1
+      },
+      {
+        "message": 3,
+        "text": "አዲስ አበባ",
+        "tokens": 2
+      },
+      {
+        "message": 4,
+        "text": "ቦሌ",
+        "tokens": 1
+      },
+      {
+        "message": 5,
+        "text": "ቦሌ",
+        "tokens": 1
+      },
+      {
+        "message": 6,
+        "text": "ገርጂ",
+        "tokens": 1
+      },
+      {
+        "message": 7,
+        "text": "ማርካቶ",
+        "tokens": 1
+      },
+      {
+        "message": 8,
+        "text": "ፒያሳ",
+        "tokens": 1
+      },
+      {
+        "message": 9,
+        "text": "ፒያሳ",
+        "tokens": 1
+      },
+      {
+        "message": 10,
+        "text": "ንግሥት",
+        "tokens": 1
+      },
+      {
+        "message": 11,
+        "text": "መርካቶ",
+        "tokens": 1
+      },
+      {
+        "message": 14,
+        "text": "አዲስ አበባ",
+        "tokens": 2
+      },
+      {
+        "message": 15,
+        "text": "ቦሌ",
+        "tokens": 1
+      },
+      {
+        "message": 16,
+        "text": "ገርጂ",
+        "tokens": 1
+      },
+      {
+        "message": 17,
+        "text": "መርካቶ",
+        "tokens": 1
+      },
+      {
+        "message": 19,
+        "text": "አዲስ አበባ",
+        "tokens": 2
+      },
+      {
+        "message": 20,
+        "text": "ቦሌ",
+        "tokens": 1
+      },
+      {
+        "message": 21,
+        "text": "ቦሌ",
+        "tokens": 1
+      },
+      {
+        "message": 22,
+        "text": "ገርጂ",
+        "tokens": 1
+      },
+      {
+        "message": 23,
+        "text": "ማርካቶ",
+        "tokens": 1
+      },
+      {
+        "message": 24,
+        "text": "ፒያሳ",
+        "tokens": 1
+      },
+      {
+        "message": 25,
+        "text": "ፒያሳ",
+        "tokens": 1
+      },
+      {
+        "message": 26,
+        "text": "ንግሥት",
+        "tokens": 1
+      },
+      {
+        "message": 27,
+        "text": "መርካቶ",
+        "tokens": 1
+      },
+      {
+        "message": 30,
+        "text": "አዲስ አበባ",
+        "tokens": 2
+      },
+      {
+        "message": 31,
+        "text": "ቦሌ",
+        "tokens": 1
+      },
+      {
+        "message": 32,
+        "text": "ገርጂ",
+        "tokens": 1
+      },
+      {
+        "message": 33,
+        "text": "መርካቶ",
+        "tokens": 1
+      },
+      {
+        "message": 35,
+        "text": "አዲስ አበባ",
+        "tokens": 2
+      },
+      {
+        "message": 36,
+        "text": "ቦሌ",
+        "tokens": 1
+      },
+      {
+        "message": 37,
+        "text": "ቦሌ",
+        "tokens": 1
+      },
+      {
+        "message": 38,
+        "text": "ገርጂ",
+        "tokens": 1
+      },
+      {
+        "message": 39,
+        "text": "ማርካቶ",
+        "tokens": 1
+      },
+      {
+        "message": 40,
+        "text": "ፒያሳ",
+        "tokens": 1
+      },
+      {
+        "message": 41,
+        "text": "ፒያሳ",
+        "tokens": 1
+      },
+      {
+        "message": 42,
+        "text": "ንግሥት",
+        "tokens": 1
+      },
+      {
+        "message": 43,
+        "text": "መርካቶ",
+        "tokens": 1
+      },
+      {
+        "message": 46,
+        "text": "አዲስ አበባ",
+        "tokens": 2
+      },
+      {
+        "message": 47,
+        "text": "ቦሌ",
+        "tokens": 1
+      },
+      {
+        "message": 48,
+        "text": "ገርጂ",
+        "tokens": 1
+      },
+      {
+        "message": 49,
+        "text": "መርካቶ",
+        "tokens": 1
+      }
+    ]
+  },
+  "coverage_metrics": {
+    "total_messages": 50,
+    "total_tokens": 515,
+    "entity_tokens": 243,
+    "entity_coverage_pct": 47.18446601941748,
+    "messages_with_entities": 50,
+    "message_coverage_pct": 100.0,
+    "avg_tokens_per_message": 10.3,
+    "entity_distribution": {
+      "PRODUCT": 47,
+      "PRICE": 100,
+      "LOC": 40
+    }
+  },
+  "requirements_check": {
+    "message_count_ok": true,
+    "format_valid": true,
+    "all_entity_types_found": true
+  }
+}
