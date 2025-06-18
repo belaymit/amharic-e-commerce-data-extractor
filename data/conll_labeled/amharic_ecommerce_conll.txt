@@ -1,0 +1,664 @@
+# Message 1: cream በጣም ጥሩ! ዋጋ 1200 ብር። መርካቶ ውስጥ ይገኛል።
+# Channel: @ShegerOnlineStore
+cream	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+1200	B-PRICE
+ብር።	I-PRICE
+መርካቶ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 2: ጫማ በጣም ጥሩ! ዋጋ 1800 ብር። ቢሸፍቱ ውስጥ ይገኛል።
+# Channel: @ethio_commerce
+ጫማ	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+1800	B-PRICE
+ብር።	I-PRICE
+ቢሸፍቱ	O
+ውስጥ	O
+ይገኛል።	O
+
+# Message 3: ሳምንጣ በጣም ጥሩ! ዋጋ 2500 ብር። አዲስ አበባ ውስጥ ይገኛል።
+# Channel: @addis_market
+ሳምንጣ	O
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+2500	B-PRICE
+ብር።	I-PRICE
+አዲስ	B-LOC
+አበባ	I-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 4: ቦርሳ በጣም ጥሩ! ዋጋ 5000 ብር። ቦሌ ውስጥ ይገኛል።
+# Channel: @ethiopia_shopping
+ቦርሳ	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+5000	B-PRICE
+ብር።	I-PRICE
+ቦሌ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 5: cream በጣም ጥሩ! ዋጋ 1200 ብር። ቦሌ ውስጥ ይገኛል።
+# Channel: @ShegerOnlineStore
+cream	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+1200	B-PRICE
+ብር።	I-PRICE
+ቦሌ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 6: ጫማ በጣም ጥሩ! ዋጋ 1800 ብር። ገርጂ ውስጥ ይገኛል።
+# Channel: @ethio_commerce
+ጫማ	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+1800	B-PRICE
+ብር።	I-PRICE
+ገርጂ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 7: ሳምንጣ በጣም ጥሩ! ዋጋ 2500 ብር። ማርካቶ ውስጥ ይገኛል።
+# Channel: @addis_market
+ሳምንጣ	O
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+2500	B-PRICE
+ብር።	I-PRICE
+ማርካቶ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 8: ቦርሳ በጣም ጥሩ! ዋጋ 5000 ብር። ፒያሳ ውስጥ ይገኛል።
+# Channel: @ethiopia_shopping
+ቦርሳ	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+5000	B-PRICE
+ብር።	I-PRICE
+ፒያሳ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 9: cream በጣም ጥሩ! ዋጋ 1200 ብር። ፒያሳ ውስጥ ይገኛል።
+# Channel: @ShegerOnlineStore
+cream	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+1200	B-PRICE
+ብር።	I-PRICE
+ፒያሳ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 10: ጫማ በጣም ጥሩ! ዋጋ 1800 ብር። ንግሥት ውስጥ ይገኛል።
+# Channel: @ethio_commerce
+ጫማ	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+1800	B-PRICE
+ብር።	I-PRICE
+ንግሥት	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 11: ሳምንጣ በጣም ጥሩ! ዋጋ 2500 ብር። መርካቶ ውስጥ ይገኛል።
+# Channel: @addis_market
+ሳምንጣ	O
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+2500	B-PRICE
+ብር።	I-PRICE
+መርካቶ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 12: ቦርሳ በጣም ጥሩ! ዋጋ 5000 ብር። ቢሸፍቱ ውስጥ ይገኛል።
+# Channel: @ethiopia_shopping
+ቦርሳ	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+5000	B-PRICE
+ብር።	I-PRICE
+ቢሸፍቱ	O
+ውስጥ	O
+ይገኛል።	O
+
+# Message 13: cream በጣም ጥሩ! ዋጋ 1200 ብር። ቢሸፍቱ ውስጥ ይገኛል።
+# Channel: @ShegerOnlineStore
+cream	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+1200	B-PRICE
+ብር።	I-PRICE
+ቢሸፍቱ	O
+ውስጥ	O
+ይገኛል።	O
+
+# Message 14: ጫማ በጣም ጥሩ! ዋጋ 1800 ብር። አዲስ አበባ ውስጥ ይገኛል።
+# Channel: @ethio_commerce
+ጫማ	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+1800	B-PRICE
+ብር።	I-PRICE
+አዲስ	B-LOC
+አበባ	I-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 15: ሳምንጣ በጣም ጥሩ! ዋጋ 2500 ብር። ቦሌ ውስጥ ይገኛል።
+# Channel: @addis_market
+ሳምንጣ	O
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+2500	B-PRICE
+ብር።	I-PRICE
+ቦሌ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 16: ቦርሳ በጣም ጥሩ! ዋጋ 5000 ብር። ገርጂ ውስጥ ይገኛል።
+# Channel: @ethiopia_shopping
+ቦርሳ	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+5000	B-PRICE
+ብር።	I-PRICE
+ገርጂ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 17: ጫማ በጣም ጥሩ! ዋጋ 1296 ብር። መርካቶ ውስጥ ይገኛል።
+# Channel: @ShegerOnlineStore
+ጫማ	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+1296	B-PRICE
+ብር።	I-PRICE
+መርካቶ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 18: ሳምንጣ በጣም ጥሩ! ዋጋ 1944 ብር። ቢሸፍቱ ውስጥ ይገኛል።
+# Channel: @ethio_commerce
+ሳምንጣ	O
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+1944	B-PRICE
+ብር።	I-PRICE
+ቢሸፍቱ	O
+ውስጥ	O
+ይገኛል።	O
+
+# Message 19: ቦርሳ በጣም ጥሩ! ዋጋ 2700 ብር። አዲስ አበባ ውስጥ ይገኛል።
+# Channel: @addis_market
+ቦርሳ	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+2700	B-PRICE
+ብር።	I-PRICE
+አዲስ	B-LOC
+አበባ	I-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 20: ሞባይል ፎን በጣም ጥሩ! ዋጋ 5400 ብር። ቦሌ ውስጥ ይገኛል።
+# Channel: @ethiopia_shopping
+ሞባይል	B-PRODUCT
+ፎን	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+5400	B-PRICE
+ብር።	I-PRICE
+ቦሌ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 21: ጫማ በጣም ጥሩ! ዋጋ 1296 ብር። ቦሌ ውስጥ ይገኛል።
+# Channel: @ShegerOnlineStore
+ጫማ	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+1296	B-PRICE
+ብር።	I-PRICE
+ቦሌ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 22: ሳምንጣ በጣም ጥሩ! ዋጋ 1944 ብር። ገርጂ ውስጥ ይገኛል።
+# Channel: @ethio_commerce
+ሳምንጣ	O
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+1944	B-PRICE
+ብር።	I-PRICE
+ገርጂ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 23: ቦርሳ በጣም ጥሩ! ዋጋ 2700 ብር። ማርካቶ ውስጥ ይገኛል።
+# Channel: @addis_market
+ቦርሳ	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+2700	B-PRICE
+ብር።	I-PRICE
+ማርካቶ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 24: ሞባይል ፎን በጣም ጥሩ! ዋጋ 5400 ብር። ፒያሳ ውስጥ ይገኛል።
+# Channel: @ethiopia_shopping
+ሞባይል	B-PRODUCT
+ፎን	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+5400	B-PRICE
+ብር።	I-PRICE
+ፒያሳ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 25: ጫማ በጣም ጥሩ! ዋጋ 1296 ብር። ፒያሳ ውስጥ ይገኛል።
+# Channel: @ShegerOnlineStore
+ጫማ	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+1296	B-PRICE
+ብር።	I-PRICE
+ፒያሳ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 26: ሳምንጣ በጣም ጥሩ! ዋጋ 1944 ብር። ንግሥት ውስጥ ይገኛል።
+# Channel: @ethio_commerce
+ሳምንጣ	O
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+1944	B-PRICE
+ብር።	I-PRICE
+ንግሥት	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 27: ቦርሳ በጣም ጥሩ! ዋጋ 2700 ብር። መርካቶ ውስጥ ይገኛል።
+# Channel: @addis_market
+ቦርሳ	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+2700	B-PRICE
+ብር።	I-PRICE
+መርካቶ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 28: ሞባይል ፎን በጣም ጥሩ! ዋጋ 5400 ብር። ቢሸፍቱ ውስጥ ይገኛል።
+# Channel: @ethiopia_shopping
+ሞባይል	B-PRODUCT
+ፎን	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+5400	B-PRICE
+ብር።	I-PRICE
+ቢሸፍቱ	O
+ውስጥ	O
+ይገኛል።	O
+
+# Message 29: ጫማ በጣም ጥሩ! ዋጋ 1296 ብር። ቢሸፍቱ ውስጥ ይገኛል።
+# Channel: @ShegerOnlineStore
+ጫማ	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+1296	B-PRICE
+ብር።	I-PRICE
+ቢሸፍቱ	O
+ውስጥ	O
+ይገኛል።	O
+
+# Message 30: ሳምንጣ በጣም ጥሩ! ዋጋ 1944 ብር። አዲስ አበባ ውስጥ ይገኛል።
+# Channel: @ethio_commerce
+ሳምንጣ	O
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+1944	B-PRICE
+ብር።	I-PRICE
+አዲስ	B-LOC
+አበባ	I-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 31: ቦርሳ በጣም ጥሩ! ዋጋ 2700 ብር። ቦሌ ውስጥ ይገኛል።
+# Channel: @addis_market
+ቦርሳ	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+2700	B-PRICE
+ብር።	I-PRICE
+ቦሌ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 32: ሞባይል ፎን በጣም ጥሩ! ዋጋ 5400 ብር። ገርጂ ውስጥ ይገኛል።
+# Channel: @ethiopia_shopping
+ሞባይል	B-PRODUCT
+ፎን	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+5400	B-PRICE
+ብር።	I-PRICE
+ገርጂ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 33: ሳምንጣ በጣም ጥሩ! ዋጋ 1392 ብር። መርካቶ ውስጥ ይገኛል።
+# Channel: @ShegerOnlineStore
+ሳምንጣ	O
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+1392	B-PRICE
+ብር።	I-PRICE
+መርካቶ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 34: ቦርሳ በጣም ጥሩ! ዋጋ 2088 ብር። ቢሸፍቱ ውስጥ ይገኛል።
+# Channel: @ethio_commerce
+ቦርሳ	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+2088	B-PRICE
+ብር።	I-PRICE
+ቢሸፍቱ	O
+ውስጥ	O
+ይገኛል።	O
+
+# Message 35: ሞባይል ፎን በጣም ጥሩ! ዋጋ 2900 ብር። አዲስ አበባ ውስጥ ይገኛል።
+# Channel: @addis_market
+ሞባይል	B-PRODUCT
+ፎን	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+2900	B-PRICE
+ብር።	I-PRICE
+አዲስ	B-LOC
+አበባ	I-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 36: ልብስ በጣም ጥሩ! ዋጋ 5800 ብር። ቦሌ ውስጥ ይገኛል።
+# Channel: @ethiopia_shopping
+ልብስ	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+5800	B-PRICE
+ብር።	I-PRICE
+ቦሌ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 37: ሳምንጣ በጣም ጥሩ! ዋጋ 1392 ብር። ቦሌ ውስጥ ይገኛል።
+# Channel: @ShegerOnlineStore
+ሳምንጣ	O
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+1392	B-PRICE
+ብር።	I-PRICE
+ቦሌ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 38: ቦርሳ በጣም ጥሩ! ዋጋ 2088 ብር። ገርጂ ውስጥ ይገኛል።
+# Channel: @ethio_commerce
+ቦርሳ	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+2088	B-PRICE
+ብር።	I-PRICE
+ገርጂ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 39: ሞባይል ፎን በጣም ጥሩ! ዋጋ 2900 ብር። ማርካቶ ውስጥ ይገኛል።
+# Channel: @addis_market
+ሞባይል	B-PRODUCT
+ፎን	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+2900	B-PRICE
+ብር።	I-PRICE
+ማርካቶ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 40: ልብስ በጣም ጥሩ! ዋጋ 5800 ብር። ፒያሳ ውስጥ ይገኛል።
+# Channel: @ethiopia_shopping
+ልብስ	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+5800	B-PRICE
+ብር።	I-PRICE
+ፒያሳ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 41: ሳምንጣ በጣም ጥሩ! ዋጋ 1392 ብር። ፒያሳ ውስጥ ይገኛል።
+# Channel: @ShegerOnlineStore
+ሳምንጣ	O
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+1392	B-PRICE
+ብር።	I-PRICE
+ፒያሳ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 42: ቦርሳ በጣም ጥሩ! ዋጋ 2088 ብር። ንግሥት ውስጥ ይገኛል።
+# Channel: @ethio_commerce
+ቦርሳ	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+2088	B-PRICE
+ብር።	I-PRICE
+ንግሥት	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 43: ሞባይል ፎን በጣም ጥሩ! ዋጋ 2900 ብር። መርካቶ ውስጥ ይገኛል።
+# Channel: @addis_market
+ሞባይል	B-PRODUCT
+ፎን	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+2900	B-PRICE
+ብር።	I-PRICE
+መርካቶ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 44: ልብስ በጣም ጥሩ! ዋጋ 5800 ብር። ቢሸፍቱ ውስጥ ይገኛል።
+# Channel: @ethiopia_shopping
+ልብስ	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+5800	B-PRICE
+ብር።	I-PRICE
+ቢሸፍቱ	O
+ውስጥ	O
+ይገኛል።	O
+
+# Message 45: ሳምንጣ በጣም ጥሩ! ዋጋ 1392 ብር። ቢሸፍቱ ውስጥ ይገኛል።
+# Channel: @ShegerOnlineStore
+ሳምንጣ	O
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+1392	B-PRICE
+ብር።	I-PRICE
+ቢሸፍቱ	O
+ውስጥ	O
+ይገኛል።	O
+
+# Message 46: ቦርሳ በጣም ጥሩ! ዋጋ 2088 ብር። አዲስ አበባ ውስጥ ይገኛል።
+# Channel: @ethio_commerce
+ቦርሳ	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+2088	B-PRICE
+ብር።	I-PRICE
+አዲስ	B-LOC
+አበባ	I-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 47: ሞባይል ፎን በጣም ጥሩ! ዋጋ 2900 ብር። ቦሌ ውስጥ ይገኛል።
+# Channel: @addis_market
+ሞባይል	B-PRODUCT
+ፎን	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+2900	B-PRICE
+ብር።	I-PRICE
+ቦሌ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 48: ልብስ በጣም ጥሩ! ዋጋ 5800 ብር። ገርጂ ውስጥ ይገኛል።
+# Channel: @ethiopia_shopping
+ልብስ	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+5800	B-PRICE
+ብር።	I-PRICE
+ገርጂ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 49: ቦርሳ በጣም ጥሩ! ዋጋ 1488 ብር። መርካቶ ውስጥ ይገኛል።
+# Channel: @ShegerOnlineStore
+ቦርሳ	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+1488	B-PRICE
+ብር።	I-PRICE
+መርካቶ	B-LOC
+ውስጥ	O
+ይገኛል።	O
+
+# Message 50: ሞባይል ፎን በጣም ጥሩ! ዋጋ 2232 ብር። ቢሸፍቱ ውስጥ ይገኛል።
+# Channel: @ethio_commerce
+ሞባይል	B-PRODUCT
+ፎን	B-PRODUCT
+በጣም	O
+ጥሩ	O
+!	O
+ዋጋ	B-PRICE
+2232	B-PRICE
+ብር።	I-PRICE
+ቢሸፍቱ	O
+ውስጥ	O
+ይገኛል።	O
