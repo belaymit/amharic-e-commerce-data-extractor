@@ -1,257 +1,223 @@
-<a name="readme-top"></a>
+# Amharic E-commerce Data Extractor
 
-<div align="center">
-  <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
-  <br/>
-</div>
+A comprehensive system for collecting, processing, and analyzing Ethiopian e-commerce data from Telegram channels with **historical data collection spanning 2018-2025**.
 
-<!-- TABLE OF CONTENTS -->
+## 🎯 Project Overview
 
-# 📗 Table of Contents
+This project extracts entities (products, prices, locations) from Amharic text in Ethiopian e-commerce Telegram channels to create training data for Named Entity Recognition (NER) models.
 
-- [📖 About the Project](#about-project)
-  - [🛠 Built With](#built-with)
-    - [Tech Stack](#tech-stack)
-    - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
-- [💻 Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Setup](#setup)
-  - [Install](#install)
-  - [Usage](#usage)
-  - [Run tests](#run-tests)
-  - [Deployment](#deployment)
-- [👥 Authors](#authors)
-- [🔭 Future Features](#future-features)
-- [🤝 Contributing](#contributing)
-- [⭐️ Show your support](#support)
-- [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ (OPTIONAL)](#faq)
-- [📝 License](#license)
+### Key Features
+- **Historical Data Collection**: 2018-2025 comprehensive scraping
+- **Multi-channel Support**: 4+ Ethiopian e-commerce channels
+- **Amharic Text Processing**: Entity extraction with regex patterns
+- **Database Storage**: SQLite with optimized indexing
+- **Data Visualization**: 6 different dashboard views
+- **NER Training Ready**: Structured entity extraction
 
-<!-- PROJECT DESCRIPTION -->
-
-# 📖 [your_project_name] <a name="about-project"></a>
-
-> Describe your project in 1 or 2 sentences.
-
-**[your_project__name]** is a...
-
-## 🛠 Built With <a name="built-with"></a>
-
-### Tech Stack <a name="tech-stack"></a>
-
-> Describe the tech stack and include only the relevant sections that apply to your project.
-
-<details>
-  <summary>Client</summary>
-  <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
-  </ul>
-</details>
-
-<details>
-  <summary>Server</summary>
-  <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
-  </ul>
-</details>
-
-<details>
-<summary>Database</summary>
-  <ul>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-  </ul>
-</details>
-
-<!-- Features -->
-
-### Key Features <a name="key-features"></a>
-
-> Describe between 1-3 key features of the application.
-
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-> Add a link to your deployed project.
-
-- [Live Demo Link](https://google.com)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- GETTING STARTED -->
-
-## 💻 Getting Started <a name="getting-started"></a>
-
-> Describe how a new developer could make use of your project.
-
-To get a local copy up and running, follow these steps.
-
-### Prerequisites
-
-In order to run this project you need:
-
-<!--
-Example command:
-
-```sh
- gem install rails
-```
- -->
-
-### Setup
-
-Clone this repository to your desired folder:
-
-<!--
-Example commands:
-
-```sh
-  cd my-folder
-  git clone git@github.com:myaccount/my-project.git
-```
---->
-
-### Install
-
-Install this project with:
-
-<!--
-Example command:
-
-```sh
-  cd my-project
-  gem install
-```
---->
-
-### Usage
-
-To run the project, execute the following command:
-
-<!--
-Example command:
-
-```sh
-  rails server
-```
---->
-
-### Run tests
-
-To run tests, run the following command:
-
-<!--
-Example command:
-
-```sh
-  bin/rails test test/models/article_test.rb
-```
---->
-
-### Deployment
-
-You can deploy this project using:
-
-<!--
-Example:
-
-```sh
+## 📁 Project Structure
 
 ```
- -->
+amharic-e-commerce-data-extractor/
+├── notebook/                           # Jupyter notebooks (Task 1)
+│   ├── 01_setup_and_config.ipynb      # Environment setup
+│   ├── 02_amharic_processing.ipynb    # Text processing
+│   ├── 03_multi_channel_scraping.ipynb # Recent data collection
+│   ├── 04_data_processing.ipynb       # Message processing
+│   ├── 05_export_and_analysis.ipynb   # Data export & analysis
+│   ├── 06_data_visualization.ipynb    # Comprehensive visualization
+│   ├── 07_historical_data_collection.ipynb # 2018-2025 collection
+│   └── NOTEBOOKS_README.md            # Detailed notebook guide
+├── src/                               # Source code modules
+│   ├── config/settings.py            # Configuration management
+│   ├── scrapers/telegram_scraper.py  # Telegram scraping
+│   ├── preprocessing/amharic_processor.py # Text processing
+│   ├── pipeline/data_ingestion.py    # Data pipeline
+│   └── storage/database.py           # Database operations
+├── data/                             # Data storage
+│   ├── raw/                         # Raw scraped data
+│   ├── processed/                   # Processed datasets
+│   └── historical_messages.db       # Historical data (2018-2025)
+├── requirements.txt                  # Python dependencies
+├── setup.py                         # Package setup
+├── run_task1.py                     # Main execution script
+└── .env.example                     # Environment variables template
+```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+## 🚀 Quick Start
 
-<!-- AUTHORS -->
+### 1. Environment Setup
+```bash
+# Clone repository
+git clone <repository-url>
+cd amharic-e-commerce-data-extractor
 
-## 👥 Authors <a name="authors"></a>
+# Install dependencies
+pip install -r requirements.txt
 
-> Mention all of the collaborators of this project.
+# Setup environment variables
+cp .env.example .env
+# Edit .env with your Telegram API credentials
+```
 
-👤 **Author1**
+### 2. Historical Data Collection (2018-2025)
+```bash
+# Run historical data collection
+jupyter notebook notebook/07_historical_data_collection.ipynb
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+# Visualize historical data
+jupyter notebook notebook/06_data_visualization.ipynb
+```
 
-👤 **Author2**
+### 3. Recent Data Collection
+```bash
+# Sequential execution for complete pipeline
+jupyter notebook notebook/01_setup_and_config.ipynb
+jupyter notebook notebook/02_amharic_processing.ipynb
+jupyter notebook notebook/03_multi_channel_scraping.ipynb
+jupyter notebook notebook/04_data_processing.ipynb
+jupyter notebook notebook/05_export_and_analysis.ipynb
+```
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+## 📊 Data Collection Capabilities
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+### Historical Coverage (2018-2025)
+- **8 years** of comprehensive data
+- **4 channels**: @ShegerOnlineStore, @ethio_commerce, @addis_market, @ethiopia_shopping
+- **Batch processing** with progress tracking
+- **Rate limiting** for API compliance
+- **Database optimization** with indexing
 
-<!-- FUTURE FEATURES -->
+### Entity Extraction
+- **Prices**: Ethiopian Birr (ብር, ETB, birr) patterns
+- **Products**: Amharic product names (ቦርሳ, ልብስ, ሞባይል, etc.)
+- **Locations**: Ethiopian locations (አዲስ አበባ, ቦሌ, ገርጂ, etc.)
 
-## 🔭 Future Features <a name="future-features"></a>
+## 📈 Visualization Dashboards
 
-> Describe 1 - 3 features you will add to the project.
+6 comprehensive visualization views:
+1. **Channel Analysis** - Message distribution, views, trends
+2. **Price Analysis** - Price ranges, inflation trends  
+3. **Product & Location** - Entity frequency analysis
+4. **Entity Correlation** - Performance metrics
+5. **Time Series** - Multi-year activity patterns
+6. **Summary Dashboard** - Key insights & metrics
 
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+## 🔧 Configuration
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+### Environment Variables (.env)
+```
+TELEGRAM_API_ID=your_api_id
+TELEGRAM_API_HASH=your_api_hash
+TELEGRAM_PHONE_NUMBER=your_phone_number
+```
 
-<!-- CONTRIBUTING -->
+### Target Channels
+- `@ShegerOnlineStore` - General e-commerce
+- `@ethio_commerce` - Commercial products  
+- `@addis_market` - Local marketplace
+- `@ethiopia_shopping` - Shopping platform
 
-## 🤝 Contributing <a name="contributing"></a>
+## 📋 Task Progress
 
-Contributions, issues, and feature requests are welcome!
+### ✅ Task 1: Data Collection & Processing
+- [x] Multi-channel Telegram scraping
+- [x] Amharic text processing
+- [x] Entity extraction (prices, products, locations)
+- [x] Database storage with SQLite
+- [x] Historical data collection (2018-2025)
+- [x] Comprehensive visualization system
+- [x] Data export for NER training
 
-Feel free to check the [issues page](../../issues/).
+### 🔄 Task 2: NER Training Data (Next)
+- [ ] CoNLL format labeling
+- [ ] Entity annotation for training
+- [ ] Train/validation/test splits
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+### 🔄 Task 3: Model Development (Future)  
+- [ ] NER model training
+- [ ] Model evaluation & tuning
+- [ ] Production deployment
 
-<!-- SUPPORT -->
+## 📊 Database Schema
 
-## ⭐️ Show your support <a name="support"></a>
+### Historical Messages
+```sql
+CREATE TABLE historical_messages (
+    id INTEGER,
+    channel TEXT,
+    channel_title TEXT,
+    text TEXT,
+    date TEXT,
+    year INTEGER,
+    month INTEGER,
+    views INTEGER,
+    has_media BOOLEAN,
+    collection_timestamp TEXT,
+    PRIMARY KEY (id, channel)
+);
+```
 
-> Write a message to encourage readers to support your project
+## 🔍 Data Analysis Features
 
-If you like this project...
+### Temporal Analysis (2018-2025)
+- **Year-over-year growth** trends
+- **Seasonal patterns** in e-commerce activity
+- **Price inflation** tracking over 8 years
+- **Market evolution** indicators
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+### Entity Analytics
+- **Product category** distribution and trends
+- **Location-based** commerce patterns  
+- **Price range** analysis by year/channel
+- **Entity extraction** accuracy metrics
 
-<!-- ACKNOWLEDGEMENTS -->
+## 🛠️ Technical Stack
 
-## 🙏 Acknowledgments <a name="acknowledgements"></a>
+- **Python 3.8+** - Core language
+- **Telethon** - Telegram API client
+- **pandas** - Data manipulation
+- **SQLite** - Database storage
+- **matplotlib/seaborn** - Visualization
+- **Jupyter** - Interactive development
+- **asyncio** - Asynchronous processing
 
-> Give credit to everyone who inspired your codebase.
+## 📝 Usage Examples
 
-I would like to thank...
+### Load Historical Data
+```python
+import pandas as pd
+import sqlite3
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+# Load historical messages
+with sqlite3.connect('data/historical_messages.db') as conn:
+    df = pd.read_sql_query("SELECT * FROM historical_messages", conn)
+    
+print(f"Loaded {len(df)} messages from {df['year'].min()}-{df['year'].max()}")
+```
 
-<!-- FAQ (optional) -->
+### Extract Entities
+```python
+from src.preprocessing.amharic_processor import AmharicProcessor
 
-## ❓ FAQ (OPTIONAL) <a name="faq"></a>
+processor = AmharicProcessor()
+entities = processor.extract_entities("ልብስ ዋጋ 500 ብር አዲስ አበባ")
+# Returns: {'prices': ['500'], 'products': ['ልብስ'], 'locations': ['አዲስ አበባ']}
+```
 
-> Add at least 2 questions new developers would ask when they decide to use your project.
+## 🤝 Contributing
 
-- **[Question_1]**
+1. Fork the repository
+2. Create feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open Pull Request
 
-  - [Answer_1]
+## 📄 License
 
-- **[Question_2]**
+This project is licensed under the MIT License - see the [MIT.md](MIT.md) file for details.
 
-  - [Answer_2]
+## 🔗 Links
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LICENSE -->
-
-## 📝 License <a name="license"></a>
-
-This project is [MIT](./LICENSE) licensed.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+- **Notebooks**: See [notebook/NOTEBOOKS_README.md](notebook/NOTEBOOKS_README.md) for detailed guide
+- **Documentation**: Comprehensive inline documentation in notebooks
+- **Data**: Historical data spans 2018-2025 for robust NER training
