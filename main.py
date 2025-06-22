@@ -1,20 +1,10 @@
-#!/usr/bin/env python3
-"""
-Main entry point for Amharic E-commerce Data Extractor
-Combines all tasks (1-5) into a single executable script
-"""
-
 import os
 import sys
-import json
 import time
 import asyncio
 import argparse
 import numpy as np
-import pandas as pd
-import torch
 from pathlib import Path
-from datetime import datetime
 from sklearn.model_selection import train_test_split
 
 # Add src to path
@@ -25,7 +15,7 @@ try:
     from src.pipeline import run_task_1
     from src.config import app_config
 except ImportError:
-    print("⚠️  Warning: Core pipeline modules not found. Task 1 may not work.")
+    print("  Warning: Core pipeline modules not found. Task 1 may not work.")
     run_task_1 = None
     app_config = None
 
@@ -67,7 +57,7 @@ class AmharicNERPipeline:
     def load_conll_data(self, file_path):
         """Load CoNLL format data"""
         if not os.path.exists(file_path):
-            print(f"❌ Error: {file_path} not found.")
+            print(f" Error: {file_path} not found.")
             print("Please ensure Task 2 (CoNLL labeling) is completed first.")
             return None, None
         
@@ -105,11 +95,11 @@ class AmharicNERPipeline:
     async def run_task_1(self):
         """Task 1: Data Collection and Preprocessing"""
         print("=" * 60)
-        print("🇪🇹 TASK 1: DATA COLLECTION & PREPROCESSING")
+        print("🇪 TASK 1: DATA COLLECTION & PREPROCESSING")
         print("=" * 60)
         
         if not run_task_1:
-            print("❌ Task 1 pipeline not available. Please check src/pipeline.py")
+            print(" Task 1 pipeline not available. Please check src/pipeline.py")
             return False
         
         print("Starting data ingestion from Telegram channels...")
@@ -122,9 +112,9 @@ class AmharicNERPipeline:
             limit_per_channel = 500
             days_back = 7
             
-            print(f"📡 Target channels: {', '.join(channels)}")
-            print(f"📊 Limit per channel: {limit_per_channel}")
-            print(f"📅 Days back: {days_back}")
+            print(f" Target channels: {', '.join(channels)}")
+            print(f" Limit per channel: {limit_per_channel}")
+            print(f" Days back: {days_back}")
             print()
             
             # Run the pipeline
@@ -136,47 +126,47 @@ class AmharicNERPipeline:
             )
             
             # Display results
-            print("✅ Task 1 completed successfully!")
-            print(f"📈 Total messages: {results.get('total_messages_processed', 0)}")
-            print(f"📊 Channels processed: {results.get('channels_processed', 0)}")
+            print(" Task 1 completed successfully!")
+            print(f" Total messages: {results.get('total_messages_processed', 0)}")
+            print(f" Channels processed: {results.get('channels_processed', 0)}")
             
             return True
             
         except Exception as e:
-            print(f"❌ Task 1 failed: {e}")
+            print(f" Task 1 failed: {e}")
             return False
     
     def run_task_2_check(self):
         """Check if Task 2 (CoNLL labeling) is completed"""
         print("=" * 60)
-        print("📝 TASK 2: DATA LABELING CHECK")
+        print(" TASK 2: DATA LABELING CHECK")
         print("=" * 60)
         
         if os.path.exists(self.data_path):
             sentences, labels = self.load_conll_data(self.data_path)
             if sentences:
-                print(f"✅ Task 2 completed: {len(sentences)} labeled sentences found")
+                print(f" Task 2 completed: {len(sentences)} labeled sentences found")
                 
                 # Show label statistics
                 unique_labels = set()
                 for label_list in labels:
                     unique_labels.update(label_list)
                 
-                print(f"📊 Entity types: {sorted(list(unique_labels))}")
+                print(f" Entity types: {sorted(list(unique_labels))}")
                 return True
         
-        print("❌ Task 2 not completed. Please run CoNLL labeling first.")
-        print("💡 Use: jupyter notebook notebooks/CoNLL_Labeling.ipynb")
+        print(" Task 2 not completed. Please run CoNLL labeling first.")
+        print(" Use: jupyter notebook notebooks/CoNLL_Labeling.ipynb")
         return False
     
     def run_task_3(self, quick_demo=True):
         """Task 3: NER Model Fine-tuning"""
         print("=" * 60)
-        print("🤖 TASK 3: NER MODEL FINE-TUNING")
+        print(" TASK 3: NER MODEL FINE-TUNING")
         print("=" * 60)
         
         if not ML_AVAILABLE:
-            print("❌ ML libraries not available. Please install requirements.txt")
+            print(" ML libraries not available. Please install requirements.txt")
             return False
         
         # Load data
@@ -184,7 +174,7 @@ class AmharicNERPipeline:
         if not sentences:
             return False
         
-        print(f"📊 Loaded {len(sentences)} sentences")
+        print(f" Loaded {len(sentences)} sentences")
         
         # Create label mappings
         unique_labels = set()
@@ -195,7 +185,7 @@ class AmharicNERPipeline:
         id2label = {i: label for i, label in enumerate(label_list)}
         label2id = {label: i for i, label in enumerate(label_list)}
         
-        print(f"🏷️  Labels: {label_list}")
+        print(f"  Labels: {label_list}")
         
         # Convert labels to numeric IDs
         label_ids = [[label2id[label] for label in label_list] for label_list in labels]
@@ -206,18 +196,18 @@ class AmharicNERPipeline:
             subset_size = min(20, len(sentences))
             sentences = sentences[:subset_size]
             label_ids = label_ids[:subset_size]
-            print(f"🚀 Quick demo mode: using {subset_size} sentences")
+            print(f" Quick demo mode: using {subset_size} sentences")
         
         train_sentences, val_sentences, train_labels, val_labels = train_test_split(
             sentences, label_ids, test_size=0.3, random_state=42
         )
         
-        print(f"📚 Training set: {len(train_sentences)} sentences")
-        print(f"📖 Validation set: {len(val_sentences)} sentences")
+        print(f" Training set: {len(train_sentences)} sentences")
+        print(f" Validation set: {len(val_sentences)} sentences")
         
         # Model setup
         model_name = "distilbert-base-multilingual-cased"  # Faster for demo
-        print(f"🔧 Loading model: {model_name}")
+        print(f" Loading model: {model_name}")
         
         try:
             tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -228,7 +218,7 @@ class AmharicNERPipeline:
                 label2id=label2id
             )
         except Exception as e:
-            print(f"❌ Failed to load model: {e}")
+            print(f" Failed to load model: {e}")
             return False
         
         # Tokenization function
@@ -273,7 +263,7 @@ class AmharicNERPipeline:
         })
         
         # Tokenize datasets
-        print("🔄 Tokenizing datasets...")
+        print(" Tokenizing datasets...")
         train_tokenized = train_dataset.map(tokenize_and_align_labels, batched=True)
         val_tokenized = val_dataset.map(tokenize_and_align_labels, batched=True)
         
@@ -337,7 +327,7 @@ class AmharicNERPipeline:
         )
         
         # Training
-        print("🚀 Starting training...")
+        print(" Starting training...")
         start_time = time.time()
         
         try:
@@ -351,15 +341,15 @@ class AmharicNERPipeline:
             trainer.save_model()
             tokenizer.save_pretrained(output_dir)
             
-            print("✅ Task 3 completed successfully!")
-            print(f"⏱️  Training time: {training_time:.2f} seconds")
-            print(f"📊 Final F1-score: {eval_results.get('eval_f1', 0):.4f}")
-            print(f"💾 Model saved to: {output_dir}")
+            print(" Task 3 completed successfully!")
+            print(f"️  Training time: {training_time:.2f} seconds")
+            print(f" Final F1-score: {eval_results.get('eval_f1', 0):.4f}")
+            print(f" Model saved to: {output_dir}")
             
             return True
             
         except Exception as e:
-            print(f"❌ Training failed: {e}")
+            print(f" Training failed: {e}")
             return False
     
     def run_task_4(self):
@@ -368,12 +358,12 @@ class AmharicNERPipeline:
         print("⚖️  TASK 4: MODEL COMPARISON")
         print("=" * 60)
         
-        print("📊 Available for comparison:")
+        print(" Available for comparison:")
         print("1. XLM-Roberta (best performance)")
         print("2. DistilBERT (fast training)")
         print("3. mBERT (multilingual)")
         print()
-        print("💡 For detailed comparison, use:")
+        print(" For detailed comparison, use:")
         print("   jupyter notebook notebooks/Model_Comparison.ipynb")
         
         return True
@@ -381,63 +371,63 @@ class AmharicNERPipeline:
     def run_task_5(self):
         """Task 5: Model Interpretability"""
         print("=" * 60)
-        print("🔍 TASK 5: MODEL INTERPRETABILITY")
+        print(" TASK 5: MODEL INTERPRETABILITY")
         print("=" * 60)
         
-        print("🔬 Available interpretability tools:")
+        print(" Available interpretability tools:")
         print("1. SHAP - Feature importance analysis")
         print("2. LIME - Local explanations")
         print("3. Attention visualization")
         print()
-        print("💡 For detailed analysis, use:")
+        print(" For detailed analysis, use:")
         print("   jupyter notebook notebooks/Model_Interpretability.ipynb")
         
         return True
     
     def run_all_tasks(self):
         """Run all tasks in sequence"""
-        print("🚀 RUNNING ALL TASKS")
+        print(" RUNNING ALL TASKS")
         print("=" * 60)
         
         # Task 1
         try:
             asyncio.run(self.run_task_1())
-            print("✅ Task 1: Data Collection - COMPLETED")
+            print(" Task 1: Data Collection - COMPLETED")
         except:
-            print("⚠️  Task 1: Data Collection - SKIPPED/FAILED")
+            print("  Task 1: Data Collection - SKIPPED/FAILED")
         
         print()
         
         # Task 2 Check
         if self.run_task_2_check():
-            print("✅ Task 2: Data Labeling - COMPLETED")
+            print(" Task 2: Data Labeling - COMPLETED")
         else:
-            print("❌ Task 2: Data Labeling - REQUIRED")
+            print(" Task 2: Data Labeling - REQUIRED")
             return False
         
         print()
         
         # Task 3
         if self.run_task_3(quick_demo=True):
-            print("✅ Task 3: NER Training - COMPLETED")
+            print(" Task 3: NER Training - COMPLETED")
         else:
-            print("❌ Task 3: NER Training - FAILED")
+            print(" Task 3: NER Training - FAILED")
             return False
         
         print()
         
         # Task 4
         self.run_task_4()
-        print("✅ Task 4: Model Comparison - READY")
+        print(" Task 4: Model Comparison - READY")
         
         print()
         
         # Task 5
         self.run_task_5()
-        print("✅ Task 5: Model Interpretability - READY")
+        print(" Task 5: Model Interpretability - READY")
         
         print()
-        print("🎉 ALL TASKS COMPLETED!")
+        print(" ALL TASKS COMPLETED!")
         return True
 
 
@@ -468,7 +458,7 @@ def main():
     # Initialize pipeline
     pipeline = AmharicNERPipeline()
     
-    print("🇪🇹 AMHARIC E-COMMERCE DATA EXTRACTOR")
+    print("🇪 AMHARIC E-COMMERCE DATA EXTRACTOR")
     print("=" * 60)
     print("A comprehensive NLP solution for Ethiopian e-commerce")
     print("=" * 60)
@@ -477,7 +467,7 @@ def main():
     # Interactive mode
     if args.interactive or not args.task:
         while True:
-            print("\n📋 Available Tasks:")
+            print("\n Available Tasks:")
             print("1. Data Collection (Telegram scraping)")
             print("2. Data Labeling Check (CoNLL format)")
             print("3. NER Model Training")
@@ -486,10 +476,10 @@ def main():
             print("6. Run All Tasks")
             print("0. Exit")
             
-            choice = input("\n🔢 Enter your choice (0-6): ").strip()
+            choice = input("\n Enter your choice (0-6): ").strip()
             
             if choice == '0':
-                print("👋 Goodbye!")
+                print(" Goodbye!")
                 break
             elif choice == '1':
                 asyncio.run(pipeline.run_task_1())
@@ -504,7 +494,7 @@ def main():
             elif choice == '6':
                 pipeline.run_all_tasks()
             else:
-                print("❌ Invalid choice. Please try again.")
+                print(" Invalid choice. Please try again.")
     
     # Direct task execution
     else:
