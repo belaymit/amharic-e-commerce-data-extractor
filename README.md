@@ -1,8 +1,7 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
-  <img src="assets/logo.png" alt="logo" width="140"  height="auto" />
+
   <br/>
 
   <h3><b>Amharic E-commerce Data Extractor</b></h3>
@@ -17,7 +16,6 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
@@ -36,8 +34,6 @@
 <!-- PROJECT DESCRIPTION -->
 
 # 📖 Amharic E-commerce Data Extractor <a name="about-project"></a>
-
-> A comprehensive machine learning solution for extracting structured data from Ethiopian e-commerce communications.
 
 **Amharic E-commerce Data Extractor** is an advanced NLP project that leverages transformer models to extract products, prices, and locations from Amharic Telegram e-commerce channels. The system supports FinTech applications by providing vendor scoring capabilities for micro-lending decisions.
 
@@ -88,15 +84,6 @@
 - **Model interpretability with SHAP and LIME** - Transparent AI decision making
 - **Telegram data collection pipeline** - Automated scraping from Ethiopian channels
 - **FinTech vendor scoring** - Risk assessment for micro-lending
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-- [Demo Notebook on Colab](https://colab.research.google.com/drive/your-notebook-id) <!-- Update with actual link if available -->
-- [Model Demo](scripts/demo_task3_training.py) - Local demo script
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -188,11 +175,11 @@ docker-compose up
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Author**
+👤 **Belay Birhanu G.**
 
-- GitHub: [@your-github-handle](https://github.com/your-github-handle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/your-linkedin-handle)
-- Email: your.email@example.com
+- LinkedIn: [@LinkedIn](https://www.linkedin.com/in/belay-bgwa/)
+- GitHub: [GitHub](https://github.com/belaymit)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -268,6 +255,6 @@ If you find this project helpful for Ethiopian e-commerce or Amharic NLP researc
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](MIT.md) licensed.
+This project is [MIT](./MIT.md) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
