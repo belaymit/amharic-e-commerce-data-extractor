@@ -29,4 +29,19 @@ aiofiles==23.2.1
 
 # Data Visualization
 matplotlib==3.8.4
-seaborn==0.13.2 
+seaborn==0.13.2
+
+# Machine Learning and NLP
+torch>=1.9.0
+transformers>=4.21.0
+datasets>=2.0.0
+tokenizers>=0.13.0
+scikit-learn>=1.0.0
+accelerate>=0.20.0
+
+# Model Interpretability
+shap>=0.41.0
+lime>=0.2.0.1
+
+# Evaluation metrics
+seqeval>=1.2.2 
