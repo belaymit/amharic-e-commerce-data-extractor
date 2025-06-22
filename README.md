@@ -1,108 +1,273 @@
-# Amharic E-commerce Data Extractor
+<a name="readme-top"></a>
 
-A comprehensive Python project for extracting and analyzing e-commerce data from Amharic Telegram channels. This project implements Named Entity Recognition (NER) capabilities to identify products, prices, and locations from Amharic text.
+<div align="center">
+  <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
+  <img src="assets/logo.png" alt="logo" width="140"  height="auto" />
+  <br/>
 
-## 🎯 Features
+  <h3><b>Amharic E-commerce Data Extractor</b></h3>
 
-- **Data Ingestion**: Scrape data from multiple Ethiopian Telegram e-commerce channels
-- **Amharic NLP**: Process and analyze Amharic text with specialized preprocessing
-- **NER Models**: Fine-tuned transformer models for entity extraction (XLM-Roberta, DistilBERT, mBERT)
-- **Model Interpretability**: SHAP and LIME analysis for model transparency
-- **FinTech Integration**: Vendor scoring for micro-lending applications
+</div>
 
-## 🛠️ Installation
+<!-- TABLE OF CONTENTS -->
 
-1. **Clone the repository:**
-```bash
-git clone <repository-url>
+# 📗 Table of Contents
+
+- [📖 About the Project](#about-project)
+  - [🛠 Built With](#built-with)
+    - [Tech Stack](#tech-stack)
+    - [Key Features](#key-features)
+  - [🚀 Live Demo](#live-demo)
+- [💻 Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Setup](#setup)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Run tests](#run-tests)
+  - [Deployment](#deployment)
+- [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
+- [🤝 Contributing](#contributing)
+- [⭐️ Show your support](#support)
+- [🙏 Acknowledgements](#acknowledgements)
+- [❓ FAQ (OPTIONAL)](#faq)
+- [📝 License](#license)
+
+<!-- PROJECT DESCRIPTION -->
+
+# 📖 Amharic E-commerce Data Extractor <a name="about-project"></a>
+
+> A comprehensive machine learning solution for extracting structured data from Ethiopian e-commerce communications.
+
+**Amharic E-commerce Data Extractor** is an advanced NLP project that leverages transformer models to extract products, prices, and locations from Amharic Telegram e-commerce channels. The system supports FinTech applications by providing vendor scoring capabilities for micro-lending decisions.
+
+## 🛠 Built With <a name="built-with"></a>
+
+### Tech Stack <a name="tech-stack"></a>
+
+<details>
+  <summary>Machine Learning</summary>
+  <ul>
+    <li><a href="https://pytorch.org/">PyTorch</a></li>
+    <li><a href="https://huggingface.co/transformers/">Transformers</a></li>
+    <li><a href="https://scikit-learn.org/">Scikit-learn</a></li>
+  </ul>
+</details>
+
+<details>
+  <summary>Data Processing</summary>
+  <ul>
+    <li><a href="https://www.python.org/">Python</a></li>
+    <li><a href="https://pandas.pydata.org/">Pandas</a></li>
+    <li><a href="https://numpy.org/">NumPy</a></li>
+  </ul>
+</details>
+
+<details>
+<summary>Data Collection</summary>
+  <ul>
+    <li><a href="https://docs.telethon.dev/">Telethon</a></li>
+    <li><a href="https://docs.pyrogram.org/">Pyrogram</a></li>
+  </ul>
+</details>
+
+<details>
+<summary>Interpretability</summary>
+  <ul>
+    <li><a href="https://shap.readthedocs.io/">SHAP</a></li>
+    <li><a href="https://lime-ml.readthedocs.io/">LIME</a></li>
+  </ul>
+</details>
+
+<!-- Features -->
+
+### Key Features <a name="key-features"></a>
+
+- **Named Entity Recognition for Amharic text** - Extract products, prices, and locations
+- **Multi-model comparison framework** - XLM-Roberta, DistilBERT, and mBERT
+- **Model interpretability with SHAP and LIME** - Transparent AI decision making
+- **Telegram data collection pipeline** - Automated scraping from Ethiopian channels
+- **FinTech vendor scoring** - Risk assessment for micro-lending
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LIVE DEMO -->
+
+## 🚀 Live Demo <a name="live-demo"></a>
+
+- [Demo Notebook on Colab](https://colab.research.google.com/drive/your-notebook-id) <!-- Update with actual link if available -->
+- [Model Demo](scripts/demo_task3_training.py) - Local demo script
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- GETTING STARTED -->
+
+## 💻 Getting Started <a name="getting-started"></a>
+
+To get a local copy up and running, follow these steps.
+
+### Prerequisites
+
+In order to run this project you need:
+
+- Python 3.8 or higher
+- Git
+- Virtual environment (recommended)
+
+### Setup
+
+Clone this repository to your desired folder:
+
+```sh
+cd my-folder
+git clone https://github.com/your-username/amharic-ecommerce-data-extractor.git
 cd amharic-ecommerce-data-extractor
 ```
 
-2. **Create virtual environment:**
-```bash
+### Install
+
+Install this project with:
+
+```sh
+# Create virtual environment
 python3 -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
 
-3. **Install dependencies:**
-```bash
+# Install dependencies
 pip install -r requirements.txt
+
+# Verify installation
+python setup_project.py
 ```
 
-## 📊 Entity Types Supported
+### Usage
 
-- **Products**: ቦርሳ (bag), ጫማ (shoes), cream, etc.
-- **Prices**: ዋጋ 5000 ብር, በ 1200 ብር patterns
-- **Locations**: ቦሌ, አዲስ አበባ, መርካቶ, ፒያሳ
+To run the project, execute the following commands:
 
-## 🚀 Quick Start
-
-### Data Collection (Task 1)
-```bash
-python scripts/run_task1.py
-```
-
-### NER Model Training (Task 3)
-```bash
+```sh
+# Quick demo (4-5 seconds)
 python scripts/demo_task3_training.py
-# Or run: jupyter notebook notebooks/NER_Fine_Tuning.ipynb
+
+# Data collection
+python scripts/run_task1.py
+
+# Interactive notebooks
+cd notebooks/
+jupyter notebook
 ```
 
-### Model Comparison (Task 4)
-```bash
-# Run in Jupyter notebooks/Model_Comparison.ipynb
+**Available Notebooks:**
+- `NER_Fine_Tuning.ipynb` - Train NER models
+- `Model_Comparison.ipynb` - Compare model performance  
+- `Model_Interpretability.ipynb` - Analyze model decisions
+- `CoNLL_Labeling.ipynb` - Data labeling and annotation
+
+### Run tests
+
+To run tests, run the following command:
+
+```sh
+python -m pytest tests/
 ```
 
-### Model Interpretability (Task 5)
-```bash
-# Run in Jupyter notebooks/Model_Interpretability.ipynb
+### Deployment
+
+You can deploy this project using:
+
+```sh
+# Build Docker container
+docker build -t amharic-ner .
+
+# Run with Docker Compose
+docker-compose up
 ```
 
-## 📁 Project Structure
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-```
-├── src/
-│   ├── core/          # Core pipeline and storage components
-│   ├── models/        # ML model definitions
-│   ├── utils/         # Preprocessing and utility functions
-│   └── services/      # Telegram scrapers and external services
-├── notebooks/         # Jupyter notebooks for tasks and analysis
-├── scripts/           # Executable scripts for tasks
-├── data/              # Data storage (raw and processed)
-├── config/            # Configuration files
-├── tests/             # Unit and integration tests
-├── docs/              # Documentation
-└── examples/          # Usage examples
-```
+<!-- AUTHORS -->
 
-## 🔧 Configuration
+## 👥 Authors <a name="authors"></a>
 
-Copy `.env.example` to `.env` and configure your settings:
-```bash
-cp .env.example .env
-# Edit .env with your API keys and configurations
-```
+👤 **Author**
 
-## 📚 Documentation
+- GitHub: [@your-github-handle](https://github.com/your-github-handle)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/your-linkedin-handle)
+- Email: your.email@example.com
 
-- See `docs/` for detailed documentation
-- Check `notebooks/` for interactive examples
-- Review `docs/Task3.md`, `docs/Task4.md`, `docs/Task5.md` for implementation details
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 🤝 Contributing
+<!-- FUTURE FEATURES -->
 
+## 🔭 Future Features <a name="future-features"></a>
+
+- [ ] **Real-time entity extraction API**
+- [ ] **Multi-language support (Oromo, Tigrinya)**
+- [ ] **Advanced FinTech risk scoring models**
+- [ ] **Web interface for model interaction**
+- [ ] **Automated model retraining pipeline**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- CONTRIBUTING -->
+
+## 🤝 Contributing <a name="contributing"></a>
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+**Development Process:**
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+3. Run tests (`python -m pytest`)
+4. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+5. Push to the branch (`git push origin feature/AmazingFeature`)
+6. Open a Pull Request
 
-## 📄 License
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-This project is licensed under the MIT License - see the `MIT.md` file for details.
+<!-- SUPPORT -->
 
-## 🙏 Acknowledgments
+## ⭐️ Show your support <a name="support"></a>
 
-- Ethiopian Telegram e-commerce community
-- Hugging Face for transformer models
-- Contributors and maintainers
+If you find this project helpful for Ethiopian e-commerce or Amharic NLP research, please give it a star! Your support helps improve Amharic language processing tools.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ACKNOWLEDGEMENTS -->
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+- **Ethiopian Telegram E-commerce Community** for providing rich data sources
+- **Hugging Face** for transformer models and datasets library
+- **KAIM (Kigali AI & ML)** for project guidance and structure
+- **Microverse** for the README template
+- **Open source NLP community** for tools and libraries
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- FAQ (optional) -->
+
+## ❓ FAQ <a name="faq"></a>
+
+- **What entities can this system extract?**
+  - Products (ቦርሳ, ጫማ, cream, iPhone), Prices (ዋጋ 5000 ብር), Locations (ቦሌ, መርካቶ)
+
+- **Which models perform best for Amharic NER?**
+  - XLM-Roberta generally performs best, but DistilBERT offers good speed-accuracy balance
+
+- **How accurate is the system?**
+  - Target F1-score >0.85 with proper training (3+ epochs on full dataset)
+
+- **Can I use this for other Ethiopian languages?**
+  - Currently optimized for Amharic, but framework can be adapted for Oromo, Tigrinya
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LICENSE -->
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](MIT.md) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
