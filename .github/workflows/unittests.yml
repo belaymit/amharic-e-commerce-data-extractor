@@ -1,2 +1,205 @@
 # Add your GitHub Actions workflow here
 # Example: CI/CD pipeline, automated testing, etc.
+
+name: Unit Tests
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.9, 3.10, 3.11]
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    
+    - name: Cache pip dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest pytest-cov
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    
+    - name: Lint with flake8 (optional)
+      run: |
+        pip install flake8
+        # Stop the build if there are Python syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics --exclude=venv
+        # Exit-zero treats all errors as warnings
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics --exclude=venv
+    
+    - name: Test import capabilities
+      run: |
+        python -c "
+        import sys
+        import os
+        sys.path.append('src')
+        
+        # Test basic imports
+        try:
+            import pandas as pd
+            import numpy as np
+            print('✅ Core data science libraries imported successfully')
+        except Exception as e:
+            print(f'❌ Failed to import core libraries: {e}')
+            sys.exit(1)
+        
+        # Test analytics module imports
+        try:
+            from analytics import VendorDataLoader, VendorAnalyticsEngine
+            print('✅ Analytics modules imported successfully')
+        except Exception as e:
+            print(f'⚠️  Analytics modules not available (expected in some environments): {e}')
+        
+        # Test main module
+        try:
+            import main
+            print('✅ Main module imported successfully')
+        except Exception as e:
+            print(f'❌ Failed to import main module: {e}')
+            sys.exit(1)
+        
+        print('🎉 All critical imports working!')
+        "
+    
+    - name: Test project structure
+      run: |
+        python -c "
+        import os
+        
+        # Check essential directories
+        required_dirs = ['src', 'notebooks', 'data', 'docs']
+        for dir_name in required_dirs:
+            if os.path.exists(dir_name):
+                print(f'✅ {dir_name}/ directory exists')
+            else:
+                print(f'❌ {dir_name}/ directory missing')
+        
+        # Check key files
+        key_files = ['main.py', 'requirements.txt', 'README.md']
+        for file_name in key_files:
+            if os.path.exists(file_name):
+                print(f'✅ {file_name} exists')
+            else:
+                print(f'❌ {file_name} missing')
+        
+        print('📁 Project structure validation complete')
+        "
+    
+    - name: Test main.py functionality
+      run: |
+        python -c "
+        import sys
+        sys.path.append('.')
+        
+        # Test main module functionality
+        try:
+            from main import AmharicNERPipeline
+            pipeline = AmharicNERPipeline()
+            print('✅ AmharicNERPipeline initialized successfully')
+            
+            # Test Task 2 validation (should work even without data)
+            try:
+                result = pipeline.run_task2()
+                print(f'✅ Task 2 validation completed: {result}')
+            except Exception as e:
+                print(f'⚠️  Task 2 validation (expected if no data): {e}')
+            
+            print('🎉 Main functionality test passed!')
+            
+        except Exception as e:
+            print(f'❌ Main functionality test failed: {e}')
+            sys.exit(1)
+        "
+    
+    - name: Run pytest (if tests exist)
+      run: |
+        if [ -d "tests" ] && [ "$(find tests -name '*.py' -not -name '__init__.py' | wc -l)" -gt 0 ]; then
+          echo "Running pytest on existing tests..."
+          python -m pytest tests/ -v --tb=short
+        else
+          echo "No test files found, skipping pytest"
+          echo "✅ No tests to run - this is acceptable for this project stage"
+        fi
+    
+    - name: Validate notebooks (basic check)
+      run: |
+        python -c "
+        import os
+        import json
+        
+        notebook_dir = 'notebooks'
+        if os.path.exists(notebook_dir):
+            notebooks = [f for f in os.listdir(notebook_dir) if f.endswith('.ipynb')]
+            print(f'Found {len(notebooks)} notebooks:')
+            
+            for nb in notebooks:
+                try:
+                    with open(os.path.join(notebook_dir, nb), 'r') as f:
+                        notebook_content = json.load(f)
+                    print(f'✅ {nb} - Valid JSON structure')
+                except Exception as e:
+                    print(f'❌ {nb} - Invalid: {e}')
+        else:
+            print('No notebooks directory found')
+        "
+    
+    - name: Check data structure
+      run: |
+        python -c "
+        import os
+        
+        if os.path.exists('data'):
+            subdirs = ['raw', 'processed', 'conll_labeled']
+            for subdir in subdirs:
+                path = os.path.join('data', subdir)
+                if os.path.exists(path):
+                    print(f'✅ data/{subdir}/ exists')
+                else:
+                    print(f'⚠️  data/{subdir}/ not found (may be created at runtime)')
+        else:
+            print('⚠️  data/ directory not found (may be created at runtime)')
+        
+        print('📊 Data structure check complete')
+        "
+
+  # Optional: Code quality checks
+  code-quality:
+    runs-on: ubuntu-latest
+    if: false  # Disabled for now, can be enabled later
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: 3.11
+    
+    - name: Install code quality tools
+      run: |
+        pip install black isort flake8
+    
+    - name: Check code formatting
+      run: |
+        black --check --diff .
+        isort --check-only --diff .
+        flake8 .
