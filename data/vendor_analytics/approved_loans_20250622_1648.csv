@@ -1,0 +1,6 @@
+channel,channel_title,lending_score,risk_category,recommended_loan_etb,avg_views_per_post,posts_per_week,avg_price_etb,price_tier,business_model
+@BolePremiumShopping,Bole Premium Shopping Center,87.1,LOW_RISK,100000,4257.1,8.17,52450.0,Premium,Luxury Retailer
+@AddisElectronics,Addis Electronics Center,82.1,LOW_RISK,100000,2883.3,8.4,14816.67,Mid-range,Electronics Retailer
+@EthioFashionHub,Ethiopian Fashion Hub,77.9,LOW_RISK,53000,1316.2,8.0,2300.0,Budget,Fashion Retailer
+@HawassaBeautyShop,Hawassa Beauty & Care,69.7,MEDIUM_RISK,38000,1180.0,9.33,1851.43,Budget,Beauty Specialist
+@MerkatoGeneralStore,Merkato General Market,59.8,MEDIUM_RISK,16000,500.0,9.33,1142.86,Budget,General Retailer

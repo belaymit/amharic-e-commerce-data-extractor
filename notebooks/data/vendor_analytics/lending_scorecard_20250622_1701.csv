@@ -1,0 +1,6 @@
+channel,channel_title,category,business_model,target_market,lending_score,risk_category,risk_description,recommended_loan_etb,avg_views_per_post,total_views,posts_per_week,activity_period_days,avg_price_etb,price_tier,product_diversity,location_coverage,score_market_reach,score_activity_level,score_diversification,score_viability,score_consistency
+@BolePremiumShopping,Bole Premium Shopping Center,Premium Products,Luxury Retailer,Premium,87.1,LOW_RISK,Excellent lending candidate,100000,4257.1,29800,8.17,6,52450.0,Premium,11,1,30.0,25,20.0,3.3,8.8
+@AddisElectronics,Addis Electronics Center,Electronics & Technology,Electronics Retailer,High-end,82.1,LOW_RISK,Excellent lending candidate,100000,2883.3,17300,8.4,5,14816.67,Mid-range,10,4,28.8,25,20.0,0.0,8.3
+@EthioFashionHub,Ethiopian Fashion Hub,Fashion & Clothing,Fashion Retailer,Mid-range,77.9,LOW_RISK,Excellent lending candidate,53000,1316.2,10530,8.0,7,2300.0,Budget,11,7,13.2,25,20.0,10.8,8.9
+@HawassaBeautyShop,Hawassa Beauty & Care,Beauty & Personal Care,Beauty Specialist,Mid-range,69.7,MEDIUM_RISK,Good candidate with monitoring,38000,1180.0,4720,9.33,3,1851.43,Budget,7,1,11.8,25,17.5,6.3,9.1
+@MerkatoGeneralStore,Merkato General Market,General Merchandise,General Retailer,Budget-friendly,59.8,MEDIUM_RISK,Good candidate with monitoring,16000,500.0,2000,9.33,3,1142.86,Budget,9,1,5.0,25,20.0,1.1,8.7

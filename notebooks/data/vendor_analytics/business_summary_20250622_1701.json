@@ -1,0 +1,44 @@
+{
+  "Top Performers": [
+    {
+      "channel_title": "Bole Premium Shopping Center",
+      "lending_score": 87.1,
+      "recommended_loan_etb": 100000
+    },
+    {
+      "channel_title": "Addis Electronics Center",
+      "lending_score": 82.1,
+      "recommended_loan_etb": 100000
+    },
+    {
+      "channel_title": "Ethiopian Fashion Hub",
+      "lending_score": 77.9,
+      "recommended_loan_etb": 53000
+    }
+  ],
+  "Category Analysis": {
+    "mean": {
+      "Beauty & Personal Care": 69.7,
+      "Electronics & Technology": 82.1,
+      "Fashion & Clothing": 77.9,
+      "General Merchandise": 59.8,
+      "Premium Products": 87.1
+    },
+    "count": {
+      "Beauty & Personal Care": 1,
+      "Electronics & Technology": 1,
+      "Fashion & Clothing": 1,
+      "General Merchandise": 1,
+      "Premium Products": 1
+    }
+  },
+  "Risk Distribution": {
+    "LOW_RISK": 3,
+    "MEDIUM_RISK": 2
+  },
+  "Portfolio Metrics": {
+    "Total Portfolio Value": 307000,
+    "Average Loan Size": 61400,
+    "Loan Range": "16000 - 100000 ETB"
+  }
+}

@@ -1,0 +1,39 @@
+
+🏦 ETHIOMART VENDOR SCORECARD - EXECUTIVE SUMMARY
+============================================================
+📅 Analysis Date: 2025-06-22 16:48
+📊 Data Source: SAMPLE
+🎯 Analysis Scope: 5 vendors analyzed
+
+KEY FINDINGS
+============================================================
+🏆 TOP PERFORMER: Bole Premium Shopping Center
+   • Lending Score: 87.1/100
+   • Risk Level: Excellent lending candidate
+   • Recommended Loan: 100,000 ETB
+
+📈 PORTFOLIO METRICS:
+   • Total Lending Portfolio: 307,000 ETB
+   • Average Lending Score: 75.3/100
+   • Vendors Eligible for Loans: 5/5 (100.0%)
+   • Average Loan Amount: 61,400 ETB
+
+🎯 RISK DISTRIBUTION:
+   • LOW RISK: 3 vendors
+   • MEDIUM RISK: 2 vendors
+
+💡 RECOMMENDATIONS:
+   • IMMEDIATE ACTION: Process 3 low-risk applications
+   • MONITORING: 2 medium-risk vendors need monthly reviews  
+   • DEVELOPMENT: 0 vendors need business support
+
+📊 BUSINESS INTELLIGENCE:
+   • Most Active Category: Beauty & Personal Care
+   • Highest Engagement: Bole Premium Shopping Center
+   • Price Range Leader: Bole Premium Shopping Center
+
+🔮 NEXT STEPS:
+   1. Review and approve 5 eligible loan applications
+   2. Set up monitoring systems for medium-risk vendors
+   3. Implement business development programs for high-risk vendors
+   4. Schedule quarterly scorecard updates
