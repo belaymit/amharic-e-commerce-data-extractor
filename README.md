@@ -80,10 +80,11 @@
 ### Key Features <a name="key-features"></a>
 
 - **Named Entity Recognition for Amharic text** - Extract products, prices, and locations
-- **Multi-model comparison framework** - XLM-Roberta, DistilBERT, and mBERT
+- **Multi-model comparison framework** - XLM-Roberta, DistilBERT, and mBERT  
 - **Model interpretability with SHAP and LIME** - Transparent AI decision making
 - **Telegram data collection pipeline** - Automated scraping from Ethiopian channels
-- **FinTech vendor scoring** - Risk assessment for micro-lending
+- **FinTech vendor scorecard** - Complete micro-lending risk assessment system
+- **Business intelligence dashboard** - Vendor analytics and lending recommendations
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -148,6 +149,7 @@ jupyter notebook
 - `Model_Comparison.ipynb` - Compare model performance  
 - `Model_Interpretability.ipynb` - Analyze model decisions
 - `CoNLL_Labeling.ipynb` - Data labeling and annotation
+- `Vendor_Scorecard.ipynb` - FinTech lending analysis
 
 ### Run tests
 

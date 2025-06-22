@@ -1,10 +1,20 @@
+#!/usr/bin/env python3
+"""
+Main entry point for Amharic E-commerce Data Extractor
+Combines all tasks (1-6) into a single executable script
+"""
+
 import os
 import sys
+import json
 import time
 import asyncio
 import argparse
 import numpy as np
+import pandas as pd
+import torch
 from pathlib import Path
+from datetime import datetime
 from sklearn.model_selection import train_test_split
 
 # Add src to path
@@ -15,7 +25,7 @@ try:
     from src.pipeline import run_task_1
     from src.config import app_config
 except ImportError:
-    print("  Warning: Core pipeline modules not found. Task 1 may not work.")
+    print("⚠️  Warning: Core pipeline modules not found. Task 1 may not work.")
     run_task_1 = None
     app_config = None
 
@@ -53,11 +63,12 @@ class AmharicNERPipeline:
         os.makedirs(self.logs_dir, exist_ok=True)
         os.makedirs("data/processed", exist_ok=True)
         os.makedirs("data/raw", exist_ok=True)
+        os.makedirs("data/vendor_analytics", exist_ok=True)
     
     def load_conll_data(self, file_path):
         """Load CoNLL format data"""
         if not os.path.exists(file_path):
-            print(f" Error: {file_path} not found.")
+            print(f"❌ Error: {file_path} not found.")
             print("Please ensure Task 2 (CoNLL labeling) is completed first.")
             return None, None
         
@@ -95,11 +106,11 @@ class AmharicNERPipeline:
     async def run_task_1(self):
         """Task 1: Data Collection and Preprocessing"""
         print("=" * 60)
-        print("🇪 TASK 1: DATA COLLECTION & PREPROCESSING")
+        print("🇪🇹 TASK 1: DATA COLLECTION & PREPROCESSING")
         print("=" * 60)
         
         if not run_task_1:
-            print(" Task 1 pipeline not available. Please check src/pipeline.py")
+            print("❌ Task 1 pipeline not available. Please check src/pipeline.py")
             return False
         
         print("Starting data ingestion from Telegram channels...")
@@ -112,9 +123,9 @@ class AmharicNERPipeline:
             limit_per_channel = 500
             days_back = 7
             
-            print(f" Target channels: {', '.join(channels)}")
-            print(f" Limit per channel: {limit_per_channel}")
-            print(f" Days back: {days_back}")
+            print(f"📡 Target channels: {', '.join(channels)}")
+            print(f"📊 Limit per channel: {limit_per_channel}")
+            print(f"📅 Days back: {days_back}")
             print()
             
             # Run the pipeline
@@ -126,47 +137,47 @@ class AmharicNERPipeline:
             )
             
             # Display results
-            print(" Task 1 completed successfully!")
-            print(f" Total messages: {results.get('total_messages_processed', 0)}")
-            print(f" Channels processed: {results.get('channels_processed', 0)}")
+            print("✅ Task 1 completed successfully!")
+            print(f"📈 Total messages: {results.get('total_messages_processed', 0)}")
+            print(f"📊 Channels processed: {results.get('channels_processed', 0)}")
             
             return True
             
         except Exception as e:
-            print(f" Task 1 failed: {e}")
+            print(f"❌ Task 1 failed: {e}")
             return False
     
     def run_task_2_check(self):
         """Check if Task 2 (CoNLL labeling) is completed"""
         print("=" * 60)
-        print(" TASK 2: DATA LABELING CHECK")
+        print("📝 TASK 2: DATA LABELING CHECK")
         print("=" * 60)
         
         if os.path.exists(self.data_path):
             sentences, labels = self.load_conll_data(self.data_path)
             if sentences:
-                print(f" Task 2 completed: {len(sentences)} labeled sentences found")
+                print(f"✅ Task 2 completed: {len(sentences)} labeled sentences found")
                 
                 # Show label statistics
                 unique_labels = set()
                 for label_list in labels:
                     unique_labels.update(label_list)
                 
-                print(f" Entity types: {sorted(list(unique_labels))}")
+                print(f"📊 Entity types: {sorted(list(unique_labels))}")
                 return True
         
-        print(" Task 2 not completed. Please run CoNLL labeling first.")
-        print(" Use: jupyter notebook notebooks/CoNLL_Labeling.ipynb")
+        print("❌ Task 2 not completed. Please run CoNLL labeling first.")
+        print("💡 Use: jupyter notebook notebooks/CoNLL_Labeling.ipynb")
         return False
     
     def run_task_3(self, quick_demo=True):
         """Task 3: NER Model Fine-tuning"""
         print("=" * 60)
-        print(" TASK 3: NER MODEL FINE-TUNING")
+        print("🤖 TASK 3: NER MODEL FINE-TUNING")
         print("=" * 60)
         
         if not ML_AVAILABLE:
-            print(" ML libraries not available. Please install requirements.txt")
+            print("❌ ML libraries not available. Please install requirements.txt")
             return False
         
         # Load data
@@ -174,7 +185,7 @@ class AmharicNERPipeline:
         if not sentences:
             return False
         
-        print(f" Loaded {len(sentences)} sentences")
+        print(f"📊 Loaded {len(sentences)} sentences")
         
         # Create label mappings
         unique_labels = set()
@@ -185,7 +196,7 @@ class AmharicNERPipeline:
         id2label = {i: label for i, label in enumerate(label_list)}
         label2id = {label: i for i, label in enumerate(label_list)}
         
-        print(f"  Labels: {label_list}")
+        print(f"🏷️  Labels: {label_list}")
         
         # Convert labels to numeric IDs
         label_ids = [[label2id[label] for label in label_list] for label_list in labels]
@@ -196,18 +207,18 @@ class AmharicNERPipeline:
             subset_size = min(20, len(sentences))
             sentences = sentences[:subset_size]
             label_ids = label_ids[:subset_size]
-            print(f" Quick demo mode: using {subset_size} sentences")
+            print(f"🚀 Quick demo mode: using {subset_size} sentences")
         
         train_sentences, val_sentences, train_labels, val_labels = train_test_split(
             sentences, label_ids, test_size=0.3, random_state=42
         )
         
-        print(f" Training set: {len(train_sentences)} sentences")
-        print(f" Validation set: {len(val_sentences)} sentences")
+        print(f"📚 Training set: {len(train_sentences)} sentences")
+        print(f"📖 Validation set: {len(val_sentences)} sentences")
         
         # Model setup
         model_name = "distilbert-base-multilingual-cased"  # Faster for demo
-        print(f" Loading model: {model_name}")
+        print(f"🔧 Loading model: {model_name}")
         
         try:
             tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -218,7 +229,7 @@ class AmharicNERPipeline:
                 label2id=label2id
             )
         except Exception as e:
-            print(f" Failed to load model: {e}")
+            print(f"❌ Failed to load model: {e}")
             return False
         
         # Tokenization function
@@ -263,7 +274,7 @@ class AmharicNERPipeline:
         })
         
         # Tokenize datasets
-        print(" Tokenizing datasets...")
+        print("🔄 Tokenizing datasets...")
         train_tokenized = train_dataset.map(tokenize_and_align_labels, batched=True)
         val_tokenized = val_dataset.map(tokenize_and_align_labels, batched=True)
         
@@ -327,7 +338,7 @@ class AmharicNERPipeline:
         )
         
         # Training
-        print(" Starting training...")
+        print("🚀 Starting training...")
         start_time = time.time()
         
         try:
@@ -341,15 +352,15 @@ class AmharicNERPipeline:
             trainer.save_model()
             tokenizer.save_pretrained(output_dir)
             
-            print(" Task 3 completed successfully!")
-            print(f"️  Training time: {training_time:.2f} seconds")
-            print(f" Final F1-score: {eval_results.get('eval_f1', 0):.4f}")
-            print(f" Model saved to: {output_dir}")
+            print("✅ Task 3 completed successfully!")
+            print(f"⏱️  Training time: {training_time:.2f} seconds")
+            print(f"📊 Final F1-score: {eval_results.get('eval_f1', 0):.4f}")
+            print(f"💾 Model saved to: {output_dir}")
             
             return True
             
         except Exception as e:
-            print(f" Training failed: {e}")
+            print(f"❌ Training failed: {e}")
             return False
     
     def run_task_4(self):
@@ -358,12 +369,12 @@ class AmharicNERPipeline:
         print("⚖️  TASK 4: MODEL COMPARISON")
         print("=" * 60)
         
-        print(" Available for comparison:")
+        print("📊 Available for comparison:")
         print("1. XLM-Roberta (best performance)")
         print("2. DistilBERT (fast training)")
         print("3. mBERT (multilingual)")
         print()
-        print(" For detailed comparison, use:")
+        print("💡 For detailed comparison, use:")
         print("   jupyter notebook notebooks/Model_Comparison.ipynb")
         
         return True
@@ -371,63 +382,227 @@ class AmharicNERPipeline:
     def run_task_5(self):
         """Task 5: Model Interpretability"""
         print("=" * 60)
-        print(" TASK 5: MODEL INTERPRETABILITY")
+        print("🔍 TASK 5: MODEL INTERPRETABILITY")
         print("=" * 60)
         
-        print(" Available interpretability tools:")
+        print("🔬 Available interpretability tools:")
         print("1. SHAP - Feature importance analysis")
         print("2. LIME - Local explanations")
         print("3. Attention visualization")
         print()
-        print(" For detailed analysis, use:")
+        print("💡 For detailed analysis, use:")
         print("   jupyter notebook notebooks/Model_Interpretability.ipynb")
         
         return True
     
+    def create_sample_vendor_data(self):
+        """Create sample vendor data if no database exists"""
+        sample_data = []
+        
+        # Sample Ethiopian e-commerce channels with realistic data
+        vendors = [
+            {
+                'channel': '@EthioFashion',
+                'title': 'Ethiopian Fashion Store',
+                'messages': [
+                    {'text': 'የሴቶች ቦርሳ ዋጋ 2500 ብር ቦሌ ውስጥ', 'views': 1250, 'date': '2025-01-15'},
+                    {'text': 'ጫማ በጣም ጥሩ ዋጋ 3000 ብር', 'views': 890, 'date': '2025-01-14'},
+                    {'text': 'ሻምፖ cream ዋጋ 450 ብር', 'views': 670, 'date': '2025-01-13'},
+                    {'text': 'iPhone case ዋጋ 800 ብር መርካቶ', 'views': 1100, 'date': '2025-01-12'},
+                    {'text': 'ልብስ ሽያጭ ዋጋ 1200 ብር', 'views': 780, 'date': '2025-01-11'},
+                ]
+            },
+            {
+                'channel': '@AddisMarket',
+                'title': 'Addis Ababa Market',
+                'messages': [
+                    {'text': 'ሞባይል ፎን ዋጋ 15000 ብር ፒያሳ', 'views': 2100, 'date': '2025-01-15'},
+                    {'text': 'ቦርሳ ሽያጭ ዋጋ 1800 ብር', 'views': 950, 'date': '2025-01-14'},
+                    {'text': 'የወንዶች ሸሚዝ ዋጋ 1500 ብር', 'views': 1200, 'date': '2025-01-13'},
+                ]
+            },
+            {
+                'channel': '@BoleShop',
+                'title': 'Bole Shopping Center',
+                'messages': [
+                    {'text': 'laptop ዋጋ 45000 ብር ቦሌ', 'views': 3200, 'date': '2025-01-15'},
+                    {'text': 'ቦርሳ collection ዋጋ 2800 ብር', 'views': 1400, 'date': '2025-01-14'},
+                ]
+            }
+        ]
+        
+        # Flatten to message-level data
+        for vendor in vendors:
+            for msg in vendor['messages']:
+                sample_data.append({
+                    'channel': vendor['channel'],
+                    'channel_title': vendor['title'],
+                    'text': msg['text'],
+                    'views': msg['views'],
+                    'date': msg['date'],
+                    'entities': self.extract_entities_simple(msg['text'])
+                })
+        
+        df = pd.DataFrame(sample_data)
+        return df
+    
+    def extract_entities_simple(self, text):
+        """Simple entity extraction for demo purposes"""
+        entities = {'products': [], 'prices': [], 'locations': []}
+        
+        # Simple patterns for demo
+        import re
+        
+        # Price patterns - more comprehensive
+        price_patterns = [
+            r'ዋጋ\s*(\d+)\s*ብር',
+            r'በ\s*(\d+)\s*ብር',
+            r'(\d+)\s*ብር'
+        ]
+        
+        for pattern in price_patterns:
+            matches = re.findall(pattern, text)
+            entities['prices'].extend([match for match in matches])
+        
+        # Product patterns (common words)
+        product_words = ['ቦርሳ', 'ጫማ', 'ልብስ', 'ሸሚዝ', 'ሻምፖ', 'ሞባይል', 'ፎን', 'iPhone', 'laptop', 'cream', 'case', 'collection']
+        for word in product_words:
+            if word in text:
+                entities['products'].append(word)
+        
+        # Location patterns
+        location_words = ['ቦሌ', 'መርካቶ', 'ፒያሳ', 'አዲስ', 'አበባ', 'ውስጥ']
+        for word in location_words:
+            if word in text:
+                entities['locations'].append(word)
+        
+        return json.dumps(entities)
+    
+    def run_task6_vendor_scorecard(self):
+        """
+        Execute Task 6: FinTech Vendor Scorecard for Micro-Lending
+        Uses modular analytics architecture for better maintainability
+        """
+        print("🏦 TASK 6: FinTech Vendor Scorecard for Micro-Lending")
+        print("=" * 60)
+        
+        try:
+            # Import modular analytics components
+            from src.analytics import (
+                VendorDataLoader,
+                VendorAnalyticsEngine,
+                RiskAssessment,
+                ReportExporter
+            )
+            
+            # Step 1: Load vendor data
+            print("🔄 Loading vendor data...")
+            data_loader = VendorDataLoader()
+            df, data_source = data_loader.load_vendor_data()
+            
+            if not data_loader.validate_data_structure(df):
+                print("❌ Data validation failed")
+                return False
+            
+            data_summary = data_loader.get_data_summary(df)
+            print(f"✅ Loaded {data_summary['total_messages']} messages from {data_summary['unique_vendors']} vendors")
+            
+            # Step 2: Calculate vendor analytics
+            print("\n🧮 Calculating vendor analytics...")
+            analytics_engine = VendorAnalyticsEngine()
+            vendor_analytics = analytics_engine.process_all_vendors(df, verbose=False)
+            metrics_df = analytics_engine.create_metrics_dataframe(vendor_analytics)
+            
+            # Step 3: Risk assessment and loan calculations
+            print("🎯 Performing risk assessment...")
+            risk_assessor = RiskAssessment()
+            enhanced_metrics_df = risk_assessor.process_vendor_portfolio(metrics_df)
+            portfolio_summary = risk_assessor.get_portfolio_risk_summary(enhanced_metrics_df)
+            
+            # Step 4: Generate reports
+            print("💾 Generating comprehensive reports...")
+            exporter = ReportExporter()
+            exported_files = exporter.export_all_reports(enhanced_metrics_df, data_source, df)
+            
+            # Display results
+            print(f"\n📊 PORTFOLIO ANALYSIS COMPLETE")
+            print("=" * 60)
+            print(f"🏆 Top Performer: {enhanced_metrics_df.iloc[0]['channel_title']}")
+            print(f"📈 Average Score: {enhanced_metrics_df['lending_score'].mean():.1f}/100")
+            print(f"💰 Total Portfolio: {portfolio_summary['total_portfolio_value']:,} ETB")
+            print(f"🎯 Approval Rate: {portfolio_summary['approval_rate']:.1f}%")
+            print(f"📁 Reports Exported: {len([f for f in exported_files.values() if f])}")
+            
+            # Show sample scorecard
+            print(f"\n🔍 SAMPLE VENDOR SCORECARD:")
+            scorecard_sample = enhanced_metrics_df[['channel_title', 'lending_score', 'risk_category', 'recommended_loan_etb']].head(3)
+            for idx, (_, vendor) in enumerate(scorecard_sample.iterrows(), 1):
+                risk_emoji = vendor.get('risk_color', '⚪')
+                print(f"   {idx}. {vendor['channel_title'][:25]:25} | Score: {vendor['lending_score']:5.1f} | {risk_emoji} {vendor['risk_category']:12} | Loan: {vendor['recommended_loan_etb']:,} ETB")
+            
+            return True
+            
+        except ImportError as e:
+            print(f"❌ Import error: {e}")
+            print("💡 Make sure all analytics modules are properly installed")
+            return False
+        except Exception as e:
+            print(f"❌ Error in Task 6: {e}")
+            return False
+    
     def run_all_tasks(self):
         """Run all tasks in sequence"""
-        print(" RUNNING ALL TASKS")
+        print("🚀 RUNNING ALL TASKS")
         print("=" * 60)
         
         # Task 1
         try:
             asyncio.run(self.run_task_1())
-            print(" Task 1: Data Collection - COMPLETED")
+            print("✅ Task 1: Data Collection - COMPLETED")
         except:
-            print("  Task 1: Data Collection - SKIPPED/FAILED")
+            print("⚠️  Task 1: Data Collection - SKIPPED/FAILED")
         
         print()
         
         # Task 2 Check
         if self.run_task_2_check():
-            print(" Task 2: Data Labeling - COMPLETED")
+            print("✅ Task 2: Data Labeling - COMPLETED")
         else:
-            print(" Task 2: Data Labeling - REQUIRED")
+            print("❌ Task 2: Data Labeling - REQUIRED")
             return False
         
         print()
         
         # Task 3
         if self.run_task_3(quick_demo=True):
-            print(" Task 3: NER Training - COMPLETED")
+            print("✅ Task 3: NER Training - COMPLETED")
         else:
-            print(" Task 3: NER Training - FAILED")
+            print("❌ Task 3: NER Training - FAILED")
             return False
         
         print()
         
         # Task 4
         self.run_task_4()
-        print(" Task 4: Model Comparison - READY")
+        print("✅ Task 4: Model Comparison - READY")
         
         print()
         
         # Task 5
         self.run_task_5()
-        print(" Task 5: Model Interpretability - READY")
+        print("✅ Task 5: Model Interpretability - READY")
         
         print()
-        print(" ALL TASKS COMPLETED!")
+        
+        # Task 6
+        if self.run_task6_vendor_scorecard():
+            print("✅ Task 6: Vendor Scorecard - COMPLETED")
+        else:
+            print("❌ Task 6: Vendor Scorecard - FAILED")
+            return False
+        
+        print()
+        print("🎉 ALL TASKS COMPLETED!")
         return True
 
 
@@ -439,8 +614,8 @@ def main():
     parser.add_argument(
         '--task', 
         type=str, 
-        choices=['1', '2', '3', '4', '5', 'all'], 
-        help='Specific task to run (1-5) or "all" for complete pipeline'
+        choices=['1', '2', '3', '4', '5', '6', 'all'], 
+        help='Specific task to run (1-6) or "all" for complete pipeline'
     )
     parser.add_argument(
         '--quick', 
@@ -458,7 +633,7 @@ def main():
     # Initialize pipeline
     pipeline = AmharicNERPipeline()
     
-    print("🇪 AMHARIC E-COMMERCE DATA EXTRACTOR")
+    print("🇪🇹 AMHARIC E-COMMERCE DATA EXTRACTOR")
     print("=" * 60)
     print("A comprehensive NLP solution for Ethiopian e-commerce")
     print("=" * 60)
@@ -467,19 +642,20 @@ def main():
     # Interactive mode
     if args.interactive or not args.task:
         while True:
-            print("\n Available Tasks:")
+            print("\n📋 Available Tasks:")
             print("1. Data Collection (Telegram scraping)")
             print("2. Data Labeling Check (CoNLL format)")
             print("3. NER Model Training")
             print("4. Model Comparison")
             print("5. Model Interpretability")
-            print("6. Run All Tasks")
+            print("6. FinTech Vendor Scorecard")
+            print("7. Run All Tasks")
             print("0. Exit")
             
-            choice = input("\n Enter your choice (0-6): ").strip()
+            choice = input("\n🔢 Enter your choice (0-7): ").strip()
             
             if choice == '0':
-                print(" Goodbye!")
+                print("👋 Goodbye!")
                 break
             elif choice == '1':
                 asyncio.run(pipeline.run_task_1())
@@ -492,9 +668,11 @@ def main():
             elif choice == '5':
                 pipeline.run_task_5()
             elif choice == '6':
+                pipeline.run_task6_vendor_scorecard()
+            elif choice == '7':
                 pipeline.run_all_tasks()
             else:
-                print(" Invalid choice. Please try again.")
+                print("❌ Invalid choice. Please try again.")
     
     # Direct task execution
     else:
@@ -508,6 +686,8 @@ def main():
             pipeline.run_task_4()
         elif args.task == '5':
             pipeline.run_task_5()
+        elif args.task == '6':
+            pipeline.run_task6_vendor_scorecard()
         elif args.task == 'all':
             pipeline.run_all_tasks()
 
